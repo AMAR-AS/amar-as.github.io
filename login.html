@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width,initial-scale=1"/>
+    <title>Login — Amarjith Singh</title>
+    <link rel="icon" href="logo.png" type="image/png">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <nav class="glass">
+        <div class="logo">ASK - Amarjith Singh Kalidasan</div>
+
+        <div class="nav-links">
+            <a href="index.html">Home</a>
+            <a href="about.html">About</a>
+            <a href="projects.html">Projects</a>
+            <a href="contact.html">Contact</a>
+            <a id="auth-link" href="login.html">Login</a>
+        </div>
+
+        <div class="menu-toggle"><i class="fas fa-bars"></i></div>
+    </nav>
+
+    <section class="glass login-section" aria-labelledby="login-title">
+        <h2 id="login-title" class="section-title">Login</h2>
+
+        <div class="login-card">
+            <!-- STEP 1: Credentials -->
+            <form id="step1-form" class="contact-form">
+                <h3>Step 1 — Enter credentials</h3>
+                <div class="form-group">
+                    <label for="step1-email">Email</label>
+                    <input id="step1-email" type="email" placeholder="you@example.com" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="step1-password">Password</label>
+                    <input id="step1-password" type="password" placeholder="password" required>
+                </div>
+
+                <div style="margin-top:1rem; display:flex; gap:0.5rem;">
+                    <button class="btn" type="submit">Continue</button>
+                    <a href="index.html" class="btn" style="background:#444;">Cancel</a>
+                </div>
+
+                <p id="step1-message" style="color:#ffb3b3; margin-top:1rem;"></p>
+            </form>
+
+            <!-- STEP 2: Choose method (OTP or Secure Login) -->
+            <div id="step2" style="display:none;">
+                <h3>Step 2 — Choose login method</h3>
+                <div style="display:flex; gap:0.6rem; margin-top:1rem; flex-wrap:wrap;">
+                    <button id="opt-otp" class="btn">Login with OTP</button>
+                    <button id="opt-secure" class="btn" style="background:#2b2b2b;">Secure Login</button>
+                    <button id="opt-back" class="btn" style="background:#666;">Back</button>
+                </div>
+                <p id="step2-info" style="color:rgba(255,255,255,0.8); margin-top:1rem;">Choose OTP to receive a one-time code, or choose Secure Login to enter a secondary password.</p>
+            </div>
+
+            <!-- STEP 3A: OTP options (phone, email) -->
+            <div id="otp-options" style="display:none; margin-top:1rem;">
+                <h3>Login with OTP</h3>
+                <div style="display:flex; gap:0.6rem; margin-top:1rem; flex-wrap:wrap;">
+                    <button id="otp-phone" class="btn">Phone Number</button>
+                    <button id="otp-mail" class="btn">Email</button>
+                    <button id="otp-back" class="btn" style="background:#666;">Back</button>
+                </div>
+                <p id="otp-send-msg" style="color:rgba(255,255,255,0.8); margin-top:1rem;">Select how you want to receive your OTP.</p>
+            </div>
+
+            <!-- STEP 3B: Enter OTP -->
+            <form id="otp-form" class="contact-form" style="display:none; margin-top:1rem;">
+                <h3>Enter OTP</h3>
+                <div class="form-group">
+                    <label for="otp-code">OTP Code</label>
+                    <input id="otp-code" type="text" placeholder="123456" required>
+                </div>
+                <div style="margin-top:1rem; display:flex; gap:0.5rem;">
+                    <button class="btn" type="submit">Verify OTP</button>
+                    <button id="otp-cancel" type="button" class="btn" style="background:#666;">Cancel</button>
+                </div>
+                <p id="otp-msg" style="color:#ffb3b3; margin-top:1rem;"></p>
+            </form>
+
+            <!-- STEP 3C: Secure login (enter two different passwords) -->
+            <form id="secure-form" class="contact-form" style="display:none; margin-top:1rem;">
+                <h3>Secure Login — Enter two passwords</h3>
+                <div class="form-group">
+                    <label for="secure-pass1">Primary Password</label>
+                    <input id="secure-pass1" type="password" placeholder="primary password" required>
+                </div>
+                <div class="form-group">
+                    <label for="secure-pass2">Secondary Password</label>
+                    <input id="secure-pass2" type="password" placeholder="secondary password" required>
+                </div>
+                <div style="margin-top:1rem; display:flex; gap:0.5rem;">
+                    <button class="btn" type="submit">Verify</button>
+                    <button id="secure-cancel" type="button" class="btn" style="background:#666;">Cancel</button>
+                </div>
+                <p id="secure-msg" style="color:#ffb3b3; margin-top:1rem;"></p>
+            </form>
+
+            <!-- SUCCESS -->
+            <div id="login-success" style="display:none; margin-top:1rem; color:#b9ffd6;">
+                <h3>Login Successful</h3>
+                <p>You are now logged in (demo). Redirecting to homepage...</p>
+            </div>
+
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2025 Amarjith Singh. All rights reserved.</p>
+    </footer>
+
+    <script src="scripts.js" defer></script>
+</body>
+</html>
